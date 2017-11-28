@@ -10,7 +10,7 @@ function definition should look like: question1(s, t) and
 return a boolean True or False.
 """
 
-def questionOne(s, t):
+def question1(s, t):
   l = len(t)
   dictT = {}
     for chr in t:
@@ -32,9 +32,9 @@ def questionOne(s, t):
       if subDic == dictT: return True
      return False
 
- print questionOne('','Empty')
- print questionOne('aa','aaccccc')
- print questionOne('Udacity','')
+ print question1('','Empty')
+ print question1('aa','aaccccc')
+ print question1('Udacity','')
 
 """
 
@@ -45,7 +45,7 @@ return a string.
 
 """
 
-def questionTwo(a):
+def question2(a):
 
 	def palindrome(s, p1, p2):
 		l = p1
@@ -73,9 +73,9 @@ def questionTwo(a):
 
 a = 'fdafjkdkjfdvbn'
 
-print questionTwo('abccbadef')
-print questionTwo(' ')
-print questionTwo('USDHSBufdsufhsudhsckasduhurqohcbsaqo')
+print question2('abccbadef')
+print question2(' ')
+print question2('USDHSBufdsufhsudhsckasduhurqohcbsaqo')
 
 
 """
@@ -95,6 +95,59 @@ Vertices are represented as unique strings.The
 function definition should be question3(G)
 """
 
+
+def question3(G):
+    # G is dictionary
+    if type(G) != dict:
+        return "Error: G is not dictionary!"
+    if len(G) < 2:
+        return "Error: G has not enough vertices to form edges!"
+    vertices = G.keys()
+    edges = set()
+    for i in vertices:
+        for j in G[i]:
+            if i > j[0]:
+                edges.add((j[1], j[0], i))
+            elif i < j[0]:
+                edges.add((j[1], i, j[0]))
+
+    edges = sorted(list(edges))
+
+    # loop through edges
+    output_edges = []
+    vertices = [set(i) for i in vertices]
+    for i in edges:
+        for j in xrange(len(vertices)):
+            if i[1] in vertices[j]:
+                i1 = j
+            if i[2] in vertices[j]:
+                i2 = j
+
+        if i1 < i2:
+            vertices[i1] = set.union(vertices[i1], vertices[i2])
+            vertices.pop(i2)
+            output_edges.append(i)
+        if i1 > i2:
+            vertices[i2] = set.union(vertices[i1], vertices[i2])
+            vertices.pop(i1)
+            output_edges.append(i)
+
+        if len(vertices) == 1:
+            break
+            
+    output_graph = {}
+    for i in output_edges:
+        if i[1] in output_graph:
+            output_graph[i[1]].append((i[2], i[0]))
+        else:
+            output_graph[i[1]] = [(i[2], i[0])]
+
+        if i[2] in output_graph:
+            output_graph[i[2]].append((i[1], i[0]))
+        else:
+            output_graph[i[2]] = [(i[1], i[0])]
+    return output_graph
+            
 
 """
 
