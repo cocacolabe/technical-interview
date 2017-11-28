@@ -1,4 +1,4 @@
-Question 1 :
+Question 1:
 
 Answer:
 1. We can check to see if there’s any anagram of t is a substring of s. 
@@ -11,3 +11,18 @@ Question 2:
 
 Answer:
 Palindromes could be expand around center, so there are 0(2n-1) centers. The most efficient is 0(N^2) time and 0(1) space. 
+
+
+Question 3:
+
+Answer:
+
+“Kruskal’s algorithm is a minimum-spanning-tree algorithm which finds an edge of the least possible weight that connects any two trees in the forest. It is a greedy algorithm in graph theory as it finds a minimum spanning tree for a connected weighted graph adding increasing cost arcs at each step. -  from Wikipedia”
+
+Steps to solve the problem:
+
+1. Generate list of edges will take O(E) time and O(E) space.
+2. Sort the edges by weight will take O(Elog(E)) time and O(E) space. 
+3. Loop through each edges, find the indices, and merge sets will take worst case O(E*V) time and O(V) space. 
+4. Convert the edges back to the required output graph structure that will take O(E) time and O(V) space. 
+5. Overall my algorithm will take O(E*V) time and O(E) space. However, the overall time complexity can be further reduced to O(E*log(V)) time with "disjoint-set data structure".
