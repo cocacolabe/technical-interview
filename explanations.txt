@@ -6,3 +6,8 @@ Answer:
 3 .Worst Case would be 0(len(s)) because it looping through all substring.
 4. The space complexity would be 0(1) because the limited set of characters.
 
+
+Question 2:
+
+Answer:
+Palindromes could be expand around center, so there are 0(2n-1) centers. The most efficient is 0(N^2) time and 0(1) space. 
