@@ -1,0 +1,8 @@
+Question 1 :
+
+Answer:
+1. We can check to see if there’s any anagram of t is a substring of s. 
+2. We then compiling a dictionary of all counts for t to see if there’s any continue substring sets in s.
+3 .Worst Case would be 0(len(s)) because it looping through all substring.
+4. The space complexity would be 0(1) because the limited set of characters.
+
