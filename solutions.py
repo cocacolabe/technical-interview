@@ -148,7 +148,14 @@ def question3(G):
             output_graph[i[2]] = [(i[1], i[0])]
     return output_graph
             
+    test = {'A': [('B', 2)],
+            'B': [('A', 2), ('C', 5)],
+            'C': [('B', 5)]}
 
+print question3(test)
+print question3('')
+
+	
 """
 
 Question 4
