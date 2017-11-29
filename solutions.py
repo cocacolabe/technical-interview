@@ -244,6 +244,6 @@ C.next = D
 D.next = E
 
 print question5(A, 3)
-print question5(B, 1)
-print question5(C, 2)
+print question5(A, '')
+print question5(A, 2)
 
