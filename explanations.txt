@@ -41,3 +41,5 @@ Answer:
 Question 5:
 
 Answer:
+
+Create variables, one as reference and the other as the main pointer which will return with the data of the node mth elements from the back. We first traverse with the reference pointer to mth nodes away from the head, then move both pointers until the reference reaches the end of the list. With this our main pointer now is at the node mth elements away from the end. The time complexity will be O(n) for traverse through ll twice. Since we only store the length, the space complexity will be 0(1). 
