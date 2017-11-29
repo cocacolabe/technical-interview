@@ -26,3 +26,18 @@ Steps to solve the problem:
 3. Loop through each edges, find the indices, and merge sets will take worst case O(E*V) time and O(V) space. 
 4. Convert the edges back to the required output graph structure that will take O(E) time and O(V) space. 
 5. Overall my algorithm will take O(E*V) time and O(E) space. However, the overall time complexity can be further reduced to O(E*log(V)) time with "disjoint-set data structure".
+
+
+Question 4:
+
+Answer:
+
+1. Since the matrix is representing a BST, the least common ancestor between two nodes is the first node we meet with the value between n1 and n2. We then go left if the current node is greater than n1 and n2, go right if the current node is less than n1 and n2, else the node is the least common ancestor.
+
+2. The worst case we will traversal is the depth of a binary tree
+3. The time complexity will be O(log(n)) (if balanced, else it will be O(n)) where n is the number of elements in the tree. 
+4. The space complexity is O(1) because we only keep track of the current node at the traversal stage.
+
+Question 5:
+
+Answer:
