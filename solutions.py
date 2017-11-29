@@ -214,3 +214,36 @@ self.next = None
 
  """
 
+class Node(object):
+	def __init__(self, data):
+		self.data = data
+		self.next = None 
+
+def question5(ll, m):
+
+	n1 = ll
+	n2 = ll
+	for i in range(0, m):
+		if (n1 == None): 
+			return None
+		n1 = n1.next
+	while (n1 != None):
+		n1 = n1.next
+		n2 = n2.next
+	return n2.data
+
+A = Node(2)
+B = Node(3)
+C = Node(8)
+D = Node(1)
+E = Node(6)
+
+A.next = B 
+B.next = C
+C.next = D 
+D.next = E
+
+print question5(A, 3)
+print question5(B, 1)
+print question5(C, 2)
+
