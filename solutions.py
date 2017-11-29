@@ -1,40 +1,40 @@
 #!/usr/bin/env python
 
-
 """
 Question 1
-Given two strings s and t, determine whether some anagram of t is a substring of s.For example: if s = "udacity"
-and t = "ad", then the
-function returns True.Your
-function definition should look like: question1(s, t) and
-return a boolean True or False.
+Given two strings s and t, determine whether some anagram of t is a substring
+of s.For example: if s = "udacity" and t = "ad", then the function returns
+True.Your function definition should look like: question1(s, t) and return
+a boolean True or False.
 """
 
-def question1(s, t):
-  l = len(t)
-  dictT = {}
-    for chr in t:
-      if chr not in dictT.keys():
-        dictT[chr] = 1
-      else:
-        dictT[chr] += 1
-        
-    for i in range(0, len(s)-l+1):
-      subStr = s[i:i+l]
-      subDic = {}
-        for chr not in dictT.keys():
-          break
-        else:
-          if chr not in subDic.keys():
-            subDic[chr] = 1
-          else:
-            subDic[chr] += 1
-      if subDic == dictT: return True
-     return False
 
- print question1('','Empty')
- print question1('aa','aaccccc')
- print question1('Udacity','')
+def question1(s, t):
+    l = len(t)
+    dictT = {}
+    for chr in t:
+        if chr not in dictT.keys():
+            dictT[chr] = 1
+        else:
+            dictT[chr] += 1                
+                    
+    for i in range(0, len(s)-l+1):
+        subStr = s[i:i+l]
+        subDic = {}
+        for chr in t:
+            if chr not in dictT.keys():
+                break
+            else:
+                if chr not in subDic.keys():
+                    subDic[chr] = 1
+                else:
+                    subDic[chr] += 1
+        if subDic == dictT: return True
+    return False
+
+print question1('','udacity')
+print question1('aa','aaccccc')
+print question1('Udacity','')
 
 """
 
@@ -47,29 +47,29 @@ return a string.
 
 def question2(a):
 
-	def palindrome(s, p1, p2):
-		l = p1
-		r = p2
-		n = len(s)
-		while ((r <= n-1) & (l >= 0)):
-			if (s[l] == s[r]):
-				l-=1
-				r+=1
-			else:
-				break
-		return s[l+1:r]
+    def palindrome(s, p1, p2):
+        l = p1
+        r = p2
+        n = len(s)
+        while ((r <= n-1) & (l >= 0)):
+            if (s[l] == s[r]):
+                l-=1
+                r+=1
+            else:
+                break
+        return s[l+1:r]
 
-	n = len(a)
-	if (n==0): return ""
-	longest = a[0]
-	for i in range(0, n-1):
-		pOne = palindrome(a, i, i)
-		if (len(pOne) > len(longest)):
-			longest = pOne
-		pTwo = palindrome(a, i, i+1)
-		if (len(pTwo) > len(longest)):
-			longest = pTwo
-	return longest
+    n = len(a)
+    if (n==0): return ""
+    longest = a[0]
+    for i in range(0, n-1):
+        pOne = palindrome(a, i, i)
+        if (len(pOne) > len(longest)):
+            longest = pOne
+        pTwo = palindrome(a, i, i+1)
+        if (len(pTwo) > len(longest)):
+            longest = pTwo
+    return longest
 
 a = 'fdafjkdkjfdvbn'
 
@@ -148,14 +148,14 @@ def question3(G):
             output_graph[i[2]] = [(i[1], i[0])]
     return output_graph
             
-    test = {'A': [('B', 2)],
-            'B': [('A', 2), ('C', 5)],
-            'C': [('B', 5)]}
+test = {'A': [('B', 2)],
+        'B': [('A', 2), ('C', 5)],
+        'C': [('B', 5)]}
 
 print question3(test)
 print question3('')
 
-	
+    
 """
 
 Question 4
@@ -191,7 +191,7 @@ def question4(T, r, n1, n2):
     return -1
     
 def parent(T, n):
-	#return parent of n if it exists, otherwise return -1
+    #return parent of n if it exists, otherwise return -1
     numrows = len(T)
     for i in range(numrows):
         if T[i][n] == 1:
@@ -215,22 +215,22 @@ self.next = None
  """
 
 class Node(object):
-	def __init__(self, data):
-		self.data = data
-		self.next = None 
+    def __init__(self, data):
+        self.data = data
+        self.next = None 
 
 def question5(ll, m):
 
-	n1 = ll
-	n2 = ll
-	for i in range(0, m):
-		if (n1 == None): 
-			return None
-		n1 = n1.next
-	while (n1 != None):
-		n1 = n1.next
-		n2 = n2.next
-	return n2.data
+    n1 = ll
+    n2 = ll
+    for i in range(0, m):
+        if (n1 == None): 
+            return None
+        n1 = n1.next
+    while (n1 != None):
+        n1 = n1.next
+        n2 = n2.next
+    return n2.data
 
 A = Node(2)
 B = Node(3)
@@ -244,6 +244,7 @@ C.next = D
 D.next = E
 
 print question5(A, 3)
-print question5(A, '')
+print question5(A, 1)
 print question5(A, 2)
+
 
